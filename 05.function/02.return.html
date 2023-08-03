@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        1.return a+b; = 함수 외부로 값을 반환하라는 의미
+        2. return만 덩그러니 있을 때: 함수를 벗어나라는 의미 (아무데서나 사용 가능, break는 switch문과 while문에서만 사용가능)
+        3. 매개변수의 값을 새롭게 적용하여 반환하라는 의미
+        4. return 키워드를 만나면 함수의 실행을 종료하며, 호출한 코드로 간다 => return 아래 구문이 존재한다면 그 구문은 실행되지 않는다
+
+        break와 return의 차이점
+        break는 반복문을 벗어나는 키워드(switch, for, while)
+
+        return 함수를 종료하는 키워드(return은 break의 의미도 포함 - 더 큰 개념)
+        */
+        function sum(a, b){
+
+            let result = a+b;
+            console.log(result); //return문 이후에 입력하면 출력 안됨
+            return a+b;
+        }
+        document.write(sum(3, 5));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

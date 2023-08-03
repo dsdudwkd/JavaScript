@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        함수
+        어떠한 기능을 하는 코드들을 모아놓은 집합소
+        특정 기능을 수행하는 코드들을 하나의 명령어로 묶어놓은 덩어리
+
+        함수는 예약되어있는 함수와 사용자가 지정해서 사용하는 함수로 나눌 수가 있다
+        
+        직접 함수를 작성할 때에는 네이밍에 유의해야 한다
+        약속어/예약어 = 이미 만들어져 있는 이름(if, for, write 등등)로는 이름을 짓지 않아야 한다
+
+        함수는 작성과 동시에 출력을 하지는 않는다
+        출력은 함수명을 호출함과 동시에 이뤄진다
+        호출 위치는 선언 위치와 상관없이 이루어진다(특이한 경우 제외)
+
+        함수를 왜 사용하나요?
+        - 퍼포먼스의 효율적인 관리
+        - 각 명령어들의 시작과 끝을 알 수 있다.(관리 용이)
+        - 함수에 이름을 붙여서 필요할 때마다 호출하면 되기 때문에 반복적으로 좋다 
+        */
+
+        // let bulgogiSet = '불고기버거';
+        // let sideMenu = '감자튀김';
+        // let drink = '콜라';
+
+        // document.write(bulgogiSet + sideMenu + drink);
+
+        //setMenu(); //호이스팅 가능
+        function setMenu(burger, sideMenu, drink){ //burger, sideMenu, drink는 매개변수(parameter)로서 넘겨받는 값을 전달하는 통로 역할을 한다
+            //document.write('불고기 버거 세트');
+            document.write(burger + ', ' + sideMenu + ', ' + drink);
+        }
+        //setMenu();
+        setMenu('새우버거', '감자튀김', '콜라'); // '새우버거', '감자튀김', '콜라'는 인수/인자(argument)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
