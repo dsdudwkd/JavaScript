@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        객체
+        자바스크립트는 '객체'기반의 스크립트 언어이다
+        자바스크립트는 원시 타입을 제외한 모든 것들이 '객체'라고 한다
+
+        객체는 키(key)-식별자역할 와 값(value)으로 구성된 일종의 property의 집합체이다
+        property의 값은 자바스크립트에서 사용할 수 있는 모든 종류이다
+        
+        */
+
+        /* 
+        한 객체의 정보값을 원시형으로 저장할 때
+        변수의 종류가 너무 많아지게 되고 관리하기 어렵다
+        */
+        let name = 'edd';
+        let age = 31;
+        let job = 'student';
+        let gender = 'female';
+
+        let dey = {
+            name: 'edd',
+            age: 31,
+            job: 'student',
+            gender: 'female'
+        }
+        dey.job = 'worker';
+        console.log(dey);
+        console.log(dey.gender);
+        console.log(dey.job);
+        console.log(dey);
+
+        /* 
+        원시 타입은 변수를 복사할 때 값 자체가 복사가 되므로
+        바뀌는 값에 대해서 서로 공유하지 않지만
+
+        객체형 타입은 값이 아닌 저장소를 공유하게 되므로 값이 바뀌게 되면
+        서로 값이 바뀌게 된다 (저장되는 방식이 다르기 때문)
+        */
+
+        //원시형
+        let a = 1;
+        let b = a;
+        a=2;
+
+        console.log(a); //2
+        console.log(b); //1
+
+        //객체형
+        let person = dey;
+        console.log(person.name); //edd
+        dey.age = 29;
+        console.log(person.age); //29
+
+        person.age = 22;
+        console.log(dey.age); //29
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

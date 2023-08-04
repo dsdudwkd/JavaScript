@@ -29,6 +29,27 @@
             return a * b;
         }
         console.log(calc(3, 4));
+
+        //3. 생성자 함수는 일반 함수와 생성자 함수를 구별하기 위해서 생성자 함수는 대문자로 시작하는게 관례이다
+        const User = new function(){
+            this.name = '응만'; //this는 생성자를 뜻한다
+            this.job = 'student';
+        }
+        console.log(User); //함수 전체
+        console.log(User.name); //함수 안의 내용 추출
+
+        //5. 
+        (function items(){
+            let a = 1;
+            let b = 5;
+            return console.log(a*b);
+        })(); //기명 즉시 실행 함수
+
+        (function(){
+            let a = 5;
+            let b = 10;
+            return console.log(a * b);
+        })(); //익명 즉시 실행 함수
     </script>
 </head>
 <body>

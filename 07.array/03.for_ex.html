@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        number에 있는 모든 값들을 더해서 sum에 대입해서 출력
+        for문, for in, for of
+        */
+       let number = [10, 9, 32, 27, 6, 9];
+       let sum1 = 0;
+       let sum2 = 0;
+       let sum3 = 0;
+
+       for(let i=0; i<number.length; i++){
+        sum1 += number[i];
+       }
+       console.log(sum1);
+
+       for(let i in number){
+        sum2 += number[i];
+       }
+       console.log(sum2);
+       
+       for(let i of number){
+        sum3 += i;
+    }
+    document.write(sum3);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

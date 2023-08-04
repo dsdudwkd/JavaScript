@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        배열: 여러 개의 값을 나열해서 하나의 변수에 담아서 호출하는 객체
+        배열에 들어간 객체들은 자동으로 순번을 배정받게 되며, 순번은 항상 0번부터 출력
+
+        */
+
+        let rv1 = '웬디';
+        let rv2 = '조이';
+        let rv3 = '예리';
+        let rv4 = '슬기';
+        let rv5 = '아이린';
+
+        document.write('레드벨벳의 멤버는 ' + rv1 + rv2 + rv3 + rv4 + rv5 + '으로 이루어져 있습니다.');
+
+        let rv = ['웬디', '조이', '예리','슬기', '아이린']; //각각의 독립적인 요소로 보기 때문에 순번을 배정 받음
+        let rvList = '웬디, 조이, 예리, 슬기, 아이린'; //하나의 문자이기 때문에 순번을 가질 수 없음
+        console.log('레드벨벳의 멤버: ' + rv);
+        console.log('레드벨벳의 멤버: ' + rvList);
+        console.log(rv[2]); //특정 순번을 호출함으로써 개별적으로 호출 가능
+
+        //length는 객체의 객수를 출력하는 메서드
+        document.write('레드벨벳의 멤버 수는' + rv.length + '명 입니다.');
+
+        for(let i=0; i < rv.length; i++){
+            console.log('레드벨벳의 멤버는' + rv[i] + '입니다.')
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
