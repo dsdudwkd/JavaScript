@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        숫자로 선언하는 방법
+        */
+
+        let num1 = 100;
+        let num2 = '100';
+        //생성자 함수로 생성하면 숫자 형태로 생성되기도 하며, 기존의 요소들을 숫자로 변형시킬 수도 있다
+        let num3 = new Number(100);
+        let num4 = Number(num2); //문자열을 숫자로 변형
+        let text = 'text';
+
+        console.log(typeof(num1)); //number
+        console.log(typeof(num2)); //string
+        console.log(typeof(num3)); //object
+        console.log(typeof(num4)); //number
+        console.log(Number(text)); //NaN
+
+        /* 
+        어떠한 값을 받아옥 ㅔ되면 대부분 숫자열이 아니라 문자열 형태로 넘어오게 된다
+        항상 연산을 위해서는 숫자로 변환해주는 작업이 필수적으로 필요하다
+
+        문자열 형태를 숫자열로 변환해주는 메서드 Number()
+        기존의 문자열을 숫자열로 변환할 때에는 새로 생성이 아니기 때문에 new는 생략해도 된다
+        NaN이라는 에러가 나오는 경우는 결과값이 숫자가 아니라는 뜻
+        */
+
+        let a = '3.14';
+
+        console.log(parseFloat(a));
+        console.log(parseInt(a));
+        console.log(Number(a));
+
+        /* 
+        parseInt()는 문자를 공백으로 바꿈으로써 공백을 출력하지 않는 방식으로 숫자를 변환하기 때문에 소숫점이 나오지 않는 특징이 있다
+        Number는 소숫점까지 모두 변환해준다.
+        */
+
+        let kor = 55;
+        let eng = 100;
+        let math = 62;
+        let result = (kor + eng + math) / 3;
+        console.log(result);
+        // toFixed(소숫점아래자리) 해당 숫자만큼의 소숫점 자리를 반환한다
+        console.log(result.toFixed(1));
+
+
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

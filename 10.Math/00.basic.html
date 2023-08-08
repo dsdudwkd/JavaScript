@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        Math.~~
+        수학과 관련된 객체들을 말하며, 여러 개의 세부 객체를 가지고 있다
+        실제 숫자를 가지고 있는 속성과 메서드들을 수학적인 처리를 하도록 해주는 역할
+    
+        */
+
+        let circle = Math.PI; //원주율 구하는 메서드
+        console.log(circle);
+       
+        let num = 3.141592653589793;
+        console.log(num); // 3.141592653589793
+        console.log(Math.round(num)); //3 - 반올림 메서드
+        console.log(Math.floor(num)); //3 - 숫자 내림 메서드
+        console.log(Math.ceil(num)); //4 - 숫자 올림 메서드
+        console.log(Math.trunc(num)); //3 - 숫자의 정수부분만 반환
+
+        /* 
+        round, floor, ceil은 소숫점을 판단해서 정수만 반환
+        */
+       console.log(Math.abs(num)); //값 자체를 반환 - 잘 사용하진 x
+       console.log(Math.max(10, 50, 70, 6, 3, 1, 124)); //제시 받은 값 중에서 가장 큰 값만 반환
+       console.log(Math.min(10, 50, 70, 6, 3, 1, 124)); //제시 받은 값 중에서 가장 작은 값만 반환
+       console.log(Math.pow(5, 3)); //Math.pow(x,y) x의 y제곱
+       console.log(5**3);
+
+       console.clear();
+       console.log(Math.random()); //0~1사이의 랜덤한 소숫값 반환(0이상 1미만)
+       console.log(Math.trunc(Math.random()*10)+1);
+    //    console.log(Math.floor(Math.random()*10(최댓값))+1(최솟값));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
