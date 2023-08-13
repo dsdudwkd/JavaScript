@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.onload = function () {
+            /* 
+            부모 요소 안에 자식 요소로 객체를 찾거나 추적하거나 삭제하거나 수정하는 선택자 메서드
+
+            1.appendChild(): 자손 요소로 추가
+            2.removeChild(): 자손 요소를 삭제
+            3.replaceChild(): 자손 요소를 수정
+            4.
+            */
+            let parent = document.querySelector('.parent');
+            let a = document.createElement('li');
+
+            console.log(a);
+            parent.appendChild(a);
+
+            a.className = 'child';
+            a.innerText = '6';
+            a.style.color = 'red';
+
+            let b = '<li class="child">7</li>';
+            // innerHTML은 대입만 하면 초기화하는 특징이 있어 내용을 추가할 땐 +=로 표기해야 함
+            parent.innerHTML += b;
+
+            /* 
+            동적으로 객체를 생성할 경우 생성보다 객체를 먼저 참조하게 되면 오류가 생길 수 있다
+            */
+            //let li = document.createElement('li');
+            //document.body.removeChild(li); // 전체 삭제
+            //parent.removeChild(li);
+
+            /* 
+            자식 요소의 참조
+            childNodes는 텍스트와 노드를 모두 포함해서 출력한다 (요소와 요소 사이에 있는 텍스트와 공백도 포함을 시키기 때문에 갯수가 달라질 수 있다)
+
+            childElementCount: 공백이나 텍스트와 같은 비노드는 제외한 부모의 직계자식 요소 수만 반환 - 정확한 값
+            firstChild: 부모의 첫 번째 자식 '노드'를 반환 (공백이나 텍스트가 출력됨)
+            */
+            let child1 = parent.childNodes;
+            let child2 = parent.childElementCount;
+            let child3 = parent.firstChild;
+            let child4 = parent.firstElementChild;
+            console.log(child1); //13 11+2
+            console.log(child2); //7 
+            console.log(child3); //공백
+            console.log(child4); // <li class="child">1</li>
+
+        }
+    </script>
+</head>
+
+<body>
+    <ul class="parent">
+        <li class="child">1</li>
+        <li class="child">2</li>
+        <li class="child">3</li>
+        <li class="child">4</li>
+        <li class="child">5</li>
+    </ul>
+</body>
+
+</html>

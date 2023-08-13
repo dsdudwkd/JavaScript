@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            /* 
+            이벤트 적용하는 방법
+            1. 인라인 이벤트 <태그명 on이벤트명 = '속성'></태그명>
+            ex) <p onClick = 'this.style.color = "red">item</p>'
+            
+            인라인 이벤트 방식은 현재 권장하는 사용 방법이 아니다
+            간혹 옛날 코드에서 아직 사용되고 있지만 가급적이면 html과 script를 분리해서 사용하는 것이 가장 좋다
+
+            *예외로 보는 경우
+            CBD(Component Base Develope)기반의 라이브러리(react, vue)에서는 예외로 인라인 이벤트를 사용한다
+
+            2.직접 이벤트 방식: 스크립트 문서에서 선택자.on이벤트명  = function(){실행 코드}
+            ex)선택자.onClick = function(){코드..}
+
+            3.addEventListener('이벤트명, 이벤트명..', function(){실행 코드}) - 많이 활용
+
+            두 이벤트의 차이점
+            - 직접 방식은 하나의 이벤트만 연결할 수 있지만 addEventListener는 한 번에 여러 개의 이벤트를 연결할 수 있다
+
+
+            이벤트 종류
+            1. 마우스 이벤트
+            click = 클릭 이벤트
+            mouseover = 마우스를 객체에 올렸을 때 이벤트
+            mouseout = 마우스를 객체에서 나갔을 때 이벤트
+            mousedown = 마우스 버튼을 누르고 있는 상태
+            mouseup = 마우스 버튼을 떼었을 때
+
+            scroll = 마우스 휠을 굴렸을 때 이동되는 값을 반환하는 이벤트
+            mousewheel = 마우스 휠 사용 여부를 판단하는 이벤트
+
+            2.키보드 이벤트
+            keydown = 키를 눌렀을 때 이벤트
+            keyup = 키를 떼었을 때
+            keypress = 키를 누르고 있는 상태
+
+            키보드 이벤트를 사용할 때에는 키코드 값을 찾아서 선택해야 한다
+            */
+           
+            /* 
+            스크립트에서 style을 줄 때 '-'으로 연결되어 있던 것들은 모두 카멜 기법으로 변환
+            ex) background-color -> backgroundColor
+
+            */
+            let text = document.querySelector('.text');
+            text.addEventListener('mouseover', function(){
+                this.style.color = 'blue';
+                this.style.backgroundColor = 'skyblue';
+            })
+
+            let text2 = document.querySelector('.text2');
+            let btn = document.querySelector('.btn');
+
+            //버튼을 클릭하면 다른 태그에 이벤트를 주는 방식에선 this가 아닌 선택자 이름으로 사용
+            /* btn.addEventListener('click', function(){
+                text2.style.color = 'coral';
+                text2.style.fontWeight = 'bold';
+            }) */
+
+            // 콜백함수로
+            btn.addEventListener('click', textColor);
+
+            function textColor(){
+                text2.style.color = 'coral';
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- 여기서 this는 태그 자신 -->
+    <!-- 인라인 이벤트는 사용하지 않도록 한다 -->
+    <p onClick = "this.style.color = 'red'">Lorem ipsum dolor sit amet.</p>
+
+    <p class="text">Lorem ipsum dolor sit amet.</p>
+    <p class="text2">Lorem ipsum dolor sit amet.</p>
+
+    <button class="btn">click!</button>
+</body>
+</html>
