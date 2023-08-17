@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        1. 입력창에 입력되는 글자를 받아오기
+        2. 입력된 글자가 5글자 이하면 '5글자 이상 입력해 주세요'라는 텍스트를 msg에 출력
+        */
+
+        window.onload = function(){
+            const userName = document.querySelector('#userName');
+            const msg = document.querySelector('.msg');
+            //blur는 focus out과 같은 기능을 하는 이벤트
+            userName.addEventListener('blur', function(){
+                // let text = userName.value; //입력창 내용
+                let text = userName.value.length; //입력한 내용의 길이
+                console.log(text);
+
+                if(text<5){
+                    msg.innerHTML = '5글자 이상 입력해주세요';
+                }
+                else{
+                    msg.innerHTML = '';
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <label for="userName">입력</label>
+    <input type="text" id="userName" placeholder="텍스트를 입력하세요">
+    <span class="msg"></span>
+</body>
+</html>

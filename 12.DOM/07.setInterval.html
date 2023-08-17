@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html{
+            height: 100vh;
+            background-color: #dddddd;
+        }
+        .container{
+            width: 500px;
+            background: white;
+            padding: 24px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+    </style>
+    <script>
+        /* 
+        setInterval(실행함수명, 시간(ms단위 생략)): 지정된 시간마다 ()안에 코드들을 반복하는 함수 ex)제네시스 슬라이드
+        clearInterval(함수명): 실행되고 있는 함수를 초기화
+
+        setTimeout(실행함수명, 시간(ms단위 생략)): 지정된 시간이 경과하면 함수 실행 
+        clearTimeout(함수명): 실행되고 있는 함수 초기화
+
+        새로운 값을 넣을 땐 reset을 시키는 clear~함수를 사용해야 함 그렇지 않으면 기존값들이 같이 실행됨
+        */
+
+        window.onload = function(){
+            const item = document.querySelector('input'); //값을 받아올 input
+            const btn = document.querySelector('.btn'); //계산할 버튼
+            const result = document.querySelector('.result');
+
+            let won = 0; //연봉을 받아올 변수
+            let secWon = 0; //내 연봉의 초급을 받아올 값
+            let timer; //setInterval을 담아줄 변수
+
+            btn.addEventListener('click', function(){
+                calc();
+            })
+
+            function calc(){
+
+                clearInterval(timer);
+                
+                let time = 0; //최초로 시작할 시간
+                won = parseInt(item.value) * 10000;
+                console.log(won);
+
+                secWon = won / 365 / 24 / 60 / 60;
+                // 금액 /365/24/60/60
+                console.log(secWon);
+
+                timer = setInterval(function(){
+                    time++;
+                    // console.log(time);
+                    console.log(time * secWon);
+                    result.innerHTML = '당신은 ' + time + '초에 ' + parseInt(time * secWon) + '원을 벌고 있습니다.'
+                    
+                },1000)
+
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>연봉을 입력하세요(만원 단위)</h1>
+        <input type="text" value="3000">
+        <button class="btn">계산하기!</button>
+
+        <p class="result">당신은 1초에 얼마를 벌까요?</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       /*
+       1. 1번문제의 내용을 응용하는 문제입니다.
+
+       2. 1번 문제의 ul li를 바로 추가하는게 아닌 버튼을 눌렀을때 추가하는 로직으로 변경해주세요.
+       
+       */
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .container{
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            padding: 12px;
+            background: #eeeeee;
+            gap: 20px;
+        }
+        .box-container{
+            display: flex;
+            gap: 20px;
+        }
+        .box-container .box{
+            width: 250px;
+            height: 100px;
+            background: coral;
+        }
+        ul{
+            display: flex;
+            gap: 20px;
+        }
+        ul li{
+            width: 20px;
+            height: 20px;
+            background: #333;
+            border-radius: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box-container">
+            <div class="box">box</div>
+            <div class="box">box</div>
+            <div class="box">box</div>
+            <div class="box">box</div>
+        </div>
+    </div>
+
+    <button class="btn">click!</button>
+</body>
+</html>

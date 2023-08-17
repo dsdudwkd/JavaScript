@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .container{
+            width: 100%;
+            height: 100vh;
+            background: #dddddd;
+            display: flex;
+            align-items: center;
+        }
+        .canvas{
+            width: 100%;
+            height: 50vh;
+            background: pink;
+            position: relative;
+            overflow: hidden;
+        }
+        .canvas > div{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+    </style>
+    <script>
+        /* 
+        어떤 효과를 주고싶은지 생각하고 정리한 후 입력하기
+
+        1. 마우스가 움직일 때마다 이미지의 순번을 바꿔서 이미지를 교체
+        2. 이미지의 갯수와 영역의 크기를 대입
+        3. 대입된 순번을 백그라운드 이미지에 경로에 대입
+        4. 이미지가 들어갈 div 동적으로 생성하기
+        */
+
+        window.onload = function(){
+            const canvas = document.querySelector('.canvas');
+            let imgSize = 200; //출력될 이미지의 갯수
+            let item = ''; //이미지가 들어갈 영역
+
+            for(let i=1; i <= imgSize; i++){
+                item += '<div style="background-image:url(./videoImg/img' + i + '.png)"></div>';
+            }
+            canvas.innerHTML = item;
+
+            const divs = document.querySelectorAll('div');
+
+            window.addEventListener('mousemove',function(e){
+                let x = e.pageX; //현재 마우스 위치(x축)
+                let winW = window.innerWidth; //영역의 크기
+
+                let percent = parseInt((x/winW)*imgSize)+1;
+                console.log(percent);
+
+                for(let i = 0; i < imgSize; i++){
+                    // console.log(divs[i]);
+                    //div요소들이 0부터 순차적으로 실행되어야 하는데 초기값을 1로 주면 에러 생김
+                    divs[i].style.display = 'none';
+                }
+                divs[percent].style.display = 'block';
+            })
+        }
+    </script>
+   
+</head>
+<body>
+    <section class="container">
+        <article class="canvas">
+
+        </article>
+    </section>
+</body>
+</html>
