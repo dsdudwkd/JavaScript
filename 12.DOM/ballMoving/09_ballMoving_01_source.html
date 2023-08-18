@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ballMoving1</title>
+
+  <style>
+  
+  body{
+			font-size:9pt;		
+		}
+
+    #wrap{
+      width:600px; height:400px; position:absolute; left:50%; margin-left:-300px; top:200px; 
+    }		
+		
+		#panel{
+			width:600px;
+			height:300px;
+			border:1px solid #999;
+			position:relative;
+      margin-bottom:30px; 
+		}
+		
+		#bar{
+			position:absolute;
+			left:50px;
+			top:190px;
+			width:500px;
+			height:20px;
+			z-index:10;
+			
+			border-top:dotted 1px #999;
+		}
+		
+		#ball{
+			position:absolute;
+			left:50px;
+			top:105px;
+			width:80px;
+			height:80px;
+			
+		}
+		
+		#nav{
+			text-align:center;
+			width:600px;
+		}
+  
+  
+  </style>
+
+  <script>
+	/* 
+	1. 시작 버튼을 누르면 공이 현재 위치에서 움직이기 시작
+	2. 공이 bar의 길이 안에서만 왕복 운동을 할 수 있도록 제어
+	2-1. 공이 bar의 끝에서 조금 삐져나오지 않게 제어
+	3. 정지 버튼을 누르면 공이 멈춤
+	4. 다시 시작 버튼을 누르면 현재 위치에서 재시작	
+	*/
+
+	window.onload = function(){
+		const ball = document.querySelector('#ball');
+		const bar = document.querySelector('#bar');
+		const startBtn = document.querySelector('#start_btn');
+		const stopBtn = document.querySelector('#stop_btn'); 
+
+		let timer; //setInterval()를 담아줄 변수
+		let stepX = 3; //공이 한 번에 움직일 위치 값 (3px?)
+		let startX = ball.offsetLeft; //처음 시작할 공의 위치- 함수로 받아와야 유동적으로 사용 가능
+		console.log(startX); //left값 50
+		let endX = bar.offsetWidth + startX - ball.offsetWidth ; //offsetWidth: 길이 구하기, 시작 위치가 0일 땐 이렇게 작성해도 됨 bar.offsetWidth - (ball.offsetWidth/2)
+		console.log(endX); //width값 500
+		let currentX = startX; //공이 이동할 위치 값을 담을 값
+
+		let isPlay = true; //상태 변수
+
+		/* 
+		끝 지점을 설정하는 두 가지 방법
+
+		1. 전체 길이 - (객체의 크기/2) = 객체의 중심이 전체 길이의 끝에 위치하는 방법
+		2. 전체 길이 - 객체의 크기 = 객체의 왼쪽 끝이 전체 길이의 끝에 위치하는 방법
+		
+		위의 공식은 시작 위치가 0일 경우를 가정하였을 경우
+
+		3. 시작 위치가 다른 경우
+		전체 길이 + 시작 위치 - 객체의 크기
+		*/
+
+		startBtn.addEventListener('click', function(){
+			/* clearInterval(timer); //버튼 여러 번 눌러도 stepX값이 중첩되어서 속도가 빨라지는 것을 막아줌
+			//함수 리팩토링
+			timer = setInterval(ballMoving, 20); */
+
+			//isPlay에 false를 기본값으로 넣어도 isPlay만 넣게 되면 true를 반환한다
+			if(isPlay){
+				timer = setInterval(ballMoving, 20);
+				isPlay = false;
+			}
+		})
+
+		stopBtn.addEventListener('click', function(){
+			// clearInterval(timer);
+			if(!isPlay){ //isPlay == false
+				clearInterval(timer)
+				isPlay = true;
+			}
+		})
+
+
+		function ballMoving(){
+			currentX += stepX;
+			// console.log(currentX);
+			ball.style.left = currentX + 'px';
+
+			if(currentX >= endX){
+				stepX = -3;
+			}else if(currentX <= startX){ //else로만 조건을 하면 497로 된 후 다시 위의 if조건이 충족되어 497과 500에서 왔다갔다하는 현상 발생해 else if조건으로 작성해야 한다
+				stepX = 3;
+			}
+			
+		}
+	}
+  </script>
+
+
+ 
+
+
+</head>
+<body>
+  
+  <div id="wrap"> 	
+		<div id="panel">
+			<div id="bar"> </div>
+			<div id="ball">
+				<img src="images/ball.png">
+			</div>
+		</div>
+		<div id="nav">
+			<button id="start_btn">시작</button>
+			<button id="stop_btn">멈춤</button>
+		</div>
+	</div>
+
+
+
+
+</body>
+</html>
